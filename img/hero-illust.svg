@@ -1,20 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 520" fill="none"><g opacity="0.75">
   <!-- 새벽 해 -->
-  <circle cx="300" cy="120" r="70" fill="#E8A35C" opacity="0.22"/>
-  <circle cx="300" cy="120" r="44" fill="#F2C27E" opacity="0.28"/>
-  <!-- 김 -->
-  <g stroke="#F6EBDD" stroke-width="7" stroke-linecap="round" opacity="0.35">
-    <path d="M190 250c-18-22 18-36 0-62s14-40 0-58"/>
-    <path d="M240 240c-18-22 18-36 0-62s14-40 0-58"/>
-    <path d="M290 250c-18-22 18-36 0-62s14-40 0-58"/>
+  <circle cx="300" cy="110" r="64" fill="#E8A35C" opacity="0.22"/>
+  <circle cx="300" cy="110" r="40" fill="#F2C27E" opacity="0.28"/>
+  <!-- 국그릇 김 -->
+  <g stroke="#F6EBDD" stroke-width="6" stroke-linecap="round" opacity="0.35">
+    <path d="M300 250c-14-18 14-28 0-48s11-30 0-44"/>
+    <path d="M340 250c-14-18 14-28 0-48s11-30 0-44"/>
   </g>
-  <!-- 밥그릇 -->
-  <path d="M120 300h290c0 92-62 150-145 150S120 392 120 300z" fill="#C2491B" opacity="0.55"/>
-  <path d="M132 300c10-40 60-62 133-62s123 22 133 62z" fill="#FFF8EE" opacity="0.55"/>
-  <rect x="215" y="448" width="100" height="16" rx="8" fill="#C2491B" opacity="0.55"/>
-  <!-- 젓가락 -->
-  <g stroke="#E7D3BC" stroke-width="8" stroke-linecap="round" opacity="0.45">
-    <path d="M90 470L230 210"/>
-    <path d="M70 460L200 205"/>
+  <!-- 국그릇 -->
+  <path d="M250 268h150c0 52-34 82-75 82s-75-30-75-82z" fill="#1F4D3A" opacity="0.7"/>
+  <ellipse cx="325" cy="268" rx="75" ry="12" fill="#E8A35C" opacity="0.45"/>
+  <!-- 도시락통 -->
+  <rect x="96" y="330" width="290" height="170" rx="22" fill="#C2491B" opacity="0.55"/>
+  <rect x="112" y="346" width="258" height="138" rx="14" fill="#FFF8EE" opacity="0.18"/>
+  <g stroke="#FFF8EE" stroke-width="6" opacity="0.35">
+    <path d="M240 346v138"/>
+    <path d="M240 415h130"/>
+    <path d="M112 415h128"/>
   </g>
+  <!-- 칸 속 음식 -->
+  <ellipse cx="176" cy="380" rx="40" ry="18" fill="#FFF8EE" opacity="0.5"/>
+  <circle cx="290" cy="378" r="12" fill="#7FA36A" opacity="0.55"/>
+  <circle cx="318" cy="386" r="10" fill="#7FA36A" opacity="0.55"/>
+  <rect x="268" y="436" width="74" height="26" rx="8" fill="#E8A35C" opacity="0.5"/>
+  <rect x="140" y="438" width="72" height="22" rx="8" fill="#B5543A" opacity="0.5"/>
 </g></svg>
