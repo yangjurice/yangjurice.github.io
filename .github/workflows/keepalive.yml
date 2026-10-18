@@ -9,6 +9,9 @@ jobs:
     steps:
       - name: Ping database API
         run: |
-          curl -fsS -o /dev/null -w "%{http_code}\n" \
-            "https://gedciexihkuslkfizxem.supabase.co/rest/v1/" \
-            -H "apikey: sb_publishable_U8N5wL8xredROMn_XyS78w_e72PPFO1"
+          code=$(curl -sS -o /dev/null -w "%{http_code}" \
+            "https://gedciexihkuslkfizxem.supabase.co/rest/v1/inquiries?select=id&limit=1" \
+            -H "apikey: sb_publishable_U8N5wL8xredROMn_XyS78w_e72PPFO1")
+          echo "status $code"
+          # 2xx/4xx 모두 DB까지 도달한 것으로 본다. 5xx나 연결 실패만 오류 처리
+          [ "$code" -lt 500 ] && [ "$code" -gt 0 ]
