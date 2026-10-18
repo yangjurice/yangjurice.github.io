@@ -65,6 +65,7 @@ function openSearch(){
 document.getElementById('addr-btn').addEventListener('click',openSearch);
 document.getElementById('addr-main').addEventListener('click',function(){if(this.readOnly)openSearch();});
 document.getElementById('addr-close').addEventListener('click',function(){wrap.hidden=true;});
+var started=false;f.addEventListener('focusin',function(){if(!started&&window.ygTrack){started=true;ygTrack('form_start');}});
 function say(t,ok){msg.textContent=t;msg.style.color=ok?'#1F4D3A':'#B3261E';}
 f.addEventListener('submit',function(e){
 e.preventDefault();
@@ -77,10 +78,11 @@ var src='';try{src=(new URLSearchParams(location.search).get('src')||'').slice(0
 var body={company:v('company'),contact_name:v('contact_name'),phone:v('phone'),address:addr(),headcount:v('headcount')||null,meals:d.getAll('meals').join(', ')||null,delivery_type:v('delivery_type')||null,message:v('message')||null,consent:true,source:src||null};
 send.disabled=true;say('보내는 중입니다...',true);
 fetch(URL_+'/rest/v1/inquiries',{method:'POST',headers:{'apikey':KEY,'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify(body)})
-.then(function(r){if(!r.ok)throw new Error(r.status);f.innerHTML='<div style="padding:18px 4px;display:flex;flex-direction:column;gap:8px"><div style="font-family:\'Noto Serif KR\',serif;font-size:20px;font-weight:900;color:#1F4D3A">신청이 접수되었습니다.</div><div style="font-size:15px">확인 후 연락드리겠습니다. 급하시면 010-8115-9671로 전화 주세요.</div></div>';})
+.then(function(r){if(!r.ok)throw new Error(r.status);if(window.ygTrack)ygTrack('form_submit');f.innerHTML='<div style="padding:18px 4px;display:flex;flex-direction:column;gap:8px"><div style="font-family:\'Noto Serif KR\',serif;font-size:20px;font-weight:900;color:#1F4D3A">신청이 접수되었습니다.</div><div style="font-size:15px">확인 후 연락드리겠습니다. 급하시면 010-8115-9671로 전화 주세요.</div></div>';})
 .catch(function(){send.disabled=false;say('전송이 안 됐습니다. 010-8115-9671로 전화나 문자 주세요.');});
 });
 })();
 </script>
+<script src="track.js" data-page="apply" defer></script>
 </body>
 </html>
