@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>무료 시식·배달 신청 | 양주고을한식뷔페</title>
+<meta name="description" content="양주고을한식뷔페 무료 시식·배달 신청서">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;800;900&amp;family=Noto+Sans+KR:wght@400;500;700;900&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#EDEAE4}
+a{color:#1F4D3A}a:hover{color:#163828}
+</style>
+</head>
+<body>
+<div style="max-width: 480px; margin: 0 auto; background: #FFFFFF; font-family: 'Noto Sans KR', sans-serif; word-break: keep-all; min-height: 100vh">
+<section style="padding: 16px 24px 28px; background: #1F4D3A">
+<a href="./" style="display: inline-block; color: #FFFFFF; font-size: 15px; text-decoration: none; padding: 8px 0 14px">← 처음으로</a>
+<form id="inq" novalidate style="background: #FFFFFF; color: #1C2420; border-radius: 12px; padding: 22px 16px; display: flex; flex-direction: column; gap: 14px; margin-top: 0">
+<div style="font-family: 'Noto Serif KR', serif; font-size: 20px; font-weight: 900; color: #1F4D3A">무료 시식 · 배달 신청</div>
+<div style="font-size: 14px; color: #4F4A44; margin-top: -8px">남겨 주시면 확인 후 연락드립니다.</div>
+<label style="display: flex; flex-direction: column; gap: 4px; font-size: 14px; font-weight: 700"><span>회사·기관명 <b style="color:#C2491B">*</b></span><input name="company" maxlength="100" autocomplete="organization" style="font: inherit; font-weight: 400; font-size: 16px; min-height: 44px; padding: 0 12px; border: 1px solid #CFC8BC; border-radius: 8px; box-sizing: border-box; width: 100%"></label>
+<label style="display: flex; flex-direction: column; gap: 4px; font-size: 14px; font-weight: 700"><span>담당자 성함 <b style="color:#C2491B">*</b></span><input name="contact_name" maxlength="50" autocomplete="name" style="font: inherit; font-weight: 400; font-size: 16px; min-height: 44px; padding: 0 12px; border: 1px solid #CFC8BC; border-radius: 8px; box-sizing: border-box; width: 100%"></label>
+<label style="display: flex; flex-direction: column; gap: 4px; font-size: 14px; font-weight: 700"><span>연락처 <b style="color:#C2491B">*</b></span><input name="phone" type="tel" inputmode="tel" maxlength="20" autocomplete="tel" placeholder="010-0000-0000" style="font: inherit; font-weight: 400; font-size: 16px; min-height: 44px; padding: 0 12px; border: 1px solid #CFC8BC; border-radius: 8px; box-sizing: border-box; width: 100%"></label>
+<div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 14px; font-weight: 700">배달 받으실 곳 <b style="color:#C2491B">*</b></span>
+<div style="display: flex; gap: 8px"><input name="addr_main" id="addr-main" readonly placeholder="주소 검색을 눌러 주세요" autocomplete="off" style="font: inherit; font-size: 16px; min-height: 44px; padding: 0 12px; border: 1px solid #CFC8BC; border-radius: 8px; box-sizing: border-box; flex: 1; min-width: 0; background: #F6F3EE"><button type="button" id="addr-btn" style="font: inherit; font-size: 15px; font-weight: 700; min-height: 44px; padding: 0 14px; border: 0; border-radius: 8px; background: #1F4D3A; color: #fff; cursor: pointer; white-space: nowrap">주소 검색</button></div>
+<div id="addr-wrap" hidden style="border: 1px solid #CFC8BC; border-radius: 8px; overflow: hidden; position: relative"><button type="button" id="addr-close" style="position: absolute; right: 6px; top: 6px; z-index: 2; border: 0; background: #1C2420; color: #fff; border-radius: 6px; padding: 4px 10px; font: inherit; font-size: 13px; cursor: pointer">닫기</button><div id="addr-box" style="height: 420px"></div></div>
+<input name="addr_detail" id="addr-detail" maxlength="80" placeholder="상세 주소 (동·호수, 층, 건물명 등)" style="font: inherit; font-size: 16px; min-height: 44px; padding: 0 12px; border: 1px solid #CFC8BC; border-radius: 8px; box-sizing: border-box; width: 100%"></div>
+<label style="display: flex; flex-direction: column; gap: 4px; font-size: 14px; font-weight: 700">식사 인원<input name="headcount" maxlength="30" placeholder="예: 1인, 10명 정도" style="font: inherit; font-weight: 400; font-size: 16px; min-height: 44px; padding: 0 12px; border: 1px solid #CFC8BC; border-radius: 8px; box-sizing: border-box; width: 100%"></label>
+<fieldset style="border: 0; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px"><legend style="font-size: 14px; font-weight: 700; padding: 0; margin-bottom: 6px">원하시는 끼니</legend>
+<div style="display: flex; gap: 8px; flex-wrap: wrap">
+<label style="display: flex; align-items: center; gap: 6px; border: 1px solid #CFC8BC; border-radius: 8px; padding: 0 14px; min-height: 44px; font-size: 15px"><input type="checkbox" name="meals" value="조식" style="width: 18px; height: 18px">조식</label>
+<label style="display: flex; align-items: center; gap: 6px; border: 1px solid #CFC8BC; border-radius: 8px; padding: 0 14px; min-height: 44px; font-size: 15px"><input type="checkbox" name="meals" value="중식" style="width: 18px; height: 18px">중식</label>
+<label style="display: flex; align-items: center; gap: 6px; border: 1px solid #CFC8BC; border-radius: 8px; padding: 0 14px; min-height: 44px; font-size: 15px"><input type="checkbox" name="meals" value="석식" style="width: 18px; height: 18px">석식</label>
+</div></fieldset>
+<label style="display: flex; flex-direction: column; gap: 4px; font-size: 14px; font-weight: 700">배달 방식
+<select name="delivery_type" style="font: inherit; font-weight: 400; font-size: 16px; min-height: 44px; padding: 0 10px; border: 1px solid #CFC8BC; border-radius: 8px; background: #FFFFFF; width: 100%"><option value="">상담 후 정할게요</option><option>1인 개인 보온도시락</option><option>식사통 개별식사 (2인 이상)</option><option>뷔페식 식사배달 (6인 이상)</option></select></label>
+<label style="display: flex; flex-direction: column; gap: 4px; font-size: 14px; font-weight: 700">요청사항<textarea name="message" rows="3" maxlength="500" placeholder="시식 희망일, 월식·장부식사 문의 등" style="font: inherit; font-weight: 400; font-size: 16px; padding: 10px 12px; border: 1px solid #CFC8BC; border-radius: 8px; box-sizing: border-box; width: 100%; resize: vertical"></textarea></label>
+<div style="position: absolute; left: -9999px" aria-hidden="true"><label>웹사이트<input name="website" tabindex="-1" autocomplete="off"></label></div>
+<label style="display: flex; gap: 10px; align-items: flex-start; font-size: 14px; line-height: 1.5"><input type="checkbox" name="consent" style="width: 20px; height: 20px; margin-top: 0; flex: 0 0 20px"><span><strong>개인정보 수집·이용에 동의합니다. (필수)</strong><br><span style="color:#4F4A44; font-size: 13px">항목: 회사·기관명, 담당자 성함, 연락처, 배달 장소, 인원 등 적어 주신 내용. 목적: 무료 시식·배달 상담과 연락. 보관: 상담이 끝나면 삭제하며, 삭제를 원하시면 전화로 요청해 주세요.</span></span></label>
+<div id="inq-msg" role="status" aria-live="polite" style="font-size: 14px; font-weight: 700; min-height: 0"></div>
+<button type="submit" id="inq-send" style="min-height: 52px; background: #C2491B; color: #FFFFFF; border: 0; border-radius: 10px; font-size: 17px; font-weight: 700; font-family: inherit; cursor: pointer">신청 보내기</button>
+</form>
+</section>
+</div>
+<script>
+(function(){
+var URL_='https://gedciexihkuslkfizxem.supabase.co', KEY='sb_publishable_U8N5wL8xredROMn_XyS78w_e72PPFO1';
+var f=document.getElementById('inq'), msg=document.getElementById('inq-msg'), send=document.getElementById('inq-send');
+
+function addr(){var m=document.getElementById('addr-main').value.trim(),dd=document.getElementById('addr-detail').value.trim();return m?(m+(dd?' '+dd:'')):'';}
+var wrap=document.getElementById('addr-wrap'),loaded=false;
+function openSearch(){
+ function run(){wrap.hidden=false;document.getElementById('addr-box').innerHTML='';
+  new daum.Postcode({width:'100%',height:'100%',oncomplete:function(r){
+   var a=r.userSelectedType==='R'?r.roadAddress:r.jibunAddress;
+   if(r.buildingName&&r.userSelectedType==='R')a+=' ('+r.buildingName+')';
+   document.getElementById('addr-main').value=a;wrap.hidden=true;document.getElementById('addr-detail').focus();
+  }}).embed(document.getElementById('addr-box'));}
+ if(window.daum&&window.daum.Postcode){run();return;}
+ var s=document.createElement('script');s.src='https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js';
+ s.onload=run;s.onerror=function(){say('주소 검색을 불러오지 못했습니다. 주소를 직접 적어 주세요.');document.getElementById('addr-main').readOnly=false;document.getElementById('addr-main').style.background='#fff';};
+ document.head.appendChild(s);}
+document.getElementById('addr-btn').addEventListener('click',openSearch);
+document.getElementById('addr-main').addEventListener('click',function(){if(this.readOnly)openSearch();});
+document.getElementById('addr-close').addEventListener('click',function(){wrap.hidden=true;});
+function say(t,ok){msg.textContent=t;msg.style.color=ok?'#1F4D3A':'#B3261E';}
+f.addEventListener('submit',function(e){
+e.preventDefault();
+var d=new FormData(f), v=function(k){return String(d.get(k)||'').trim();};
+if(!v('company')||!v('contact_name')||!addr()){say('회사·기관명, 담당자 성함, 배달 받으실 곳을 적어 주세요.');return;}
+if(v('phone').replace(/\D/g,'').length<9){say('연락처를 다시 확인해 주세요.');return;}
+if(!f.consent.checked){say('개인정보 수집·이용에 동의해 주세요.');return;}
+if(v('website')){f.hidden=true;return;}
+var src='';try{src=(new URLSearchParams(location.search).get('src')||'').slice(0,30);}catch(x){}
+var body={company:v('company'),contact_name:v('contact_name'),phone:v('phone'),address:addr(),headcount:v('headcount')||null,meals:d.getAll('meals').join(', ')||null,delivery_type:v('delivery_type')||null,message:v('message')||null,consent:true,source:src||null};
+send.disabled=true;say('보내는 중입니다...',true);
+fetch(URL_+'/rest/v1/inquiries',{method:'POST',headers:{'apikey':KEY,'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify(body)})
+.then(function(r){if(!r.ok)throw new Error(r.status);f.innerHTML='<div style="padding:18px 4px;display:flex;flex-direction:column;gap:8px"><div style="font-family:\'Noto Serif KR\',serif;font-size:20px;font-weight:900;color:#1F4D3A">신청이 접수되었습니다.</div><div style="font-size:15px">확인 후 연락드리겠습니다. 급하시면 010-8115-9671로 전화 주세요.</div></div>';})
+.catch(function(){send.disabled=false;say('전송이 안 됐습니다. 010-8115-9671로 전화나 문자 주세요.');});
+});
+})();
+</script>
+</body>
+</html>
