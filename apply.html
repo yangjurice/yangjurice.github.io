@@ -11,12 +11,15 @@
 <style>
 body{margin:0;background:#EDEAE4}
 a{color:#1F4D3A}a:hover{color:#163828}
+.tab{flex:1;display:flex;align-items:center;justify-content:center;min-height:44px;font-size:15px;font-weight:700;text-decoration:none;color:#E8C9A8;border-bottom:3px solid transparent}
+.tab[aria-current="page"]{color:#FFFFFF;border-bottom-color:#E8B04A}
 </style>
 </head>
 <body>
 <div style="max-width: 480px; margin: 0 auto; background: #FFFFFF; font-family: 'Noto Sans KR', sans-serif; word-break: keep-all; min-height: 100vh">
 <section style="padding: 16px 24px 28px; background: #1F4D3A">
-<a href="./" style="display: inline-block; color: #FFFFFF; font-size: 15px; text-decoration: none; padding: 8px 0 14px">← 처음으로</a>
+<nav aria-label="페이지 메뉴" style="position: relative; display: flex; margin: 0 -12px 16px; padding: 0"><a class="tab" href="./">홈</a><a class="tab" href="menu.html">식단표</a><a class="tab" href="apply.html" aria-current="page">시식 신청</a></nav>
+
 <form id="inq" novalidate style="background: #FFFFFF; color: #1C2420; border-radius: 12px; padding: 22px 16px; display: flex; flex-direction: column; gap: 14px; margin-top: 0">
 <div style="font-family: 'Noto Serif KR', serif; font-size: 20px; font-weight: 900; color: #1F4D3A">무료 시식 · 배달 신청</div>
 <div style="font-size: 14px; color: #4F4A44; margin-top: -8px">남겨 주시면 확인 후 연락드립니다. 무료 시식은 신규 거래처 대상 최대 2인분, <strong style="color:#C2491B">사업장당 1회</strong>이며, 배달 가능 여부는 상담 후 확정됩니다.</div>
