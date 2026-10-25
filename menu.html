@@ -18,7 +18,7 @@ a{color:#1F4D3A}a:hover{color:#163828}
 .day{background:#FFFFFF;border:1px solid #E4DED5;border-radius:14px;overflow:hidden}
 .day.today{border:2px solid #C2491B}
 .meal{display:flex;gap:12px;padding:12px 16px;border-top:1px solid #EFEAE2}
-.meal b{flex:0 0 40px;font-size:14px;color:#1F4D3A}
+.meal b{flex:0 0 64px;font-size:14px;color:#1F4D3A}
 .meal span{font-size:15px;color:#1C2420;line-height:1.55}
 .meal .tbd{color:#9A928A}
 .wk{border:1px solid #CFC8BC;background:#fff;border-radius:8px;min-width:44px;min-height:40px;font:inherit;font-size:18px;color:#1F4D3A;cursor:pointer}
@@ -36,7 +36,7 @@ a{color:#1F4D3A}a:hover{color:#163828}
 </header>
 
 <section style="padding: 22px 20px 8px; display: flex; flex-direction: column; gap: 6px">
-<h1 style="margin: 0; font-family: 'Noto Serif KR', serif; font-size: 26px; font-weight: 900; color: #1F4D3A">이번 주 식단</h1>
+<h1 style="margin: 0; font-family: 'Noto Serif KR', serif; font-size: 26px; font-weight: 900; color: #1F4D3A">이번 주 점심 식단</h1>
 <p style="margin: 0; font-size: 14px; color: #4F4A44">매일 새벽 4:30부터 조리합니다. 식단은 재료 수급에 따라 바뀔 수 있습니다.</p>
 <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 10px">
 <button type="button" class="wk" id="prev" aria-label="지난주">‹</button>
@@ -57,8 +57,8 @@ a{color:#1F4D3A}a:hover{color:#163828}
 </div>
 
 <script>
-/* 식단 데이터: 날짜(YYYY-MM-DD)별로 조식·중식·석식을 적습니다. 비어 있으면 "준비 중"으로 보입니다.
-   예) "2026-10-26": { "조식": "흰밥, 북엇국, 계란말이, 김치", "중식": "...", "석식": "..." } */
+/* 점심 식단 데이터: 날짜(YYYY-MM-DD)별로 [구분, 메뉴] 목록을 적습니다. 비어 있으면 "준비 중"으로 보입니다.
+   예) "2026-10-26": [["국/찌개","맑은콩나물국"],["메인","닭갈비"],["서브메인","김치전"],["반찬","시금치나물"],["반찬","감자채볶음"],["김치","배추김치"]] */
 var MENU = {};
 
 (function () {
@@ -75,17 +75,20 @@ var MENU = {};
     var box = document.getElementById('days'); box.innerHTML = ''; var any = false;
     for (var i = 0; i < 7; i++) {
       var d = new Date(mon); d.setUTCDate(mon.getUTCDate() + i);
-      var m = MENU[key(d)] || {};
+      var m = MENU[key(d)] || [];
       var isSun = d.getUTCDay() === 0;
-      var meals = isSun ? ['중식'] : ['조식','중식','석식'];
       var el = document.createElement('article'); el.className = 'day' + (key(d) === key(today) ? ' today' : '');
       var head = '<div style="display:flex;align-items:baseline;justify-content:space-between;padding:12px 16px;background:#F6F1E8">'
         + '<strong style="font-size:16px">' + md(d) + ' (' + DOW[d.getUTCDay()] + ')' + (key(d) === key(today) ? ' <span style="font-size:12px;color:#C2491B">오늘</span>' : '') + '</strong>'
-        + (isSun ? '<span style="font-size:12px;color:#4F4A44">일요일은 점심 배달만</span>' : '') + '</div>';
-      var rows = meals.map(function (k) {
-        var v = m[k]; if (v) any = true;
-        return '<div class="meal"><b>' + k + '</b><span class="' + (v ? '' : 'tbd') + '">' + (v ? String(v).replace(/[<>&]/g, '') : '준비 중') + '</span></div>';
-      }).join('');
+        + '<span style="font-size:12px;color:#4F4A44">점심</span></div>';
+      var esc = function (v) { return String(v).replace(/[<>&]/g, ''); };
+      var rows;
+      if (m.length) {
+        any = true;
+        rows = m.map(function (it) { return '<div class="meal"><b>' + esc(it[0]) + '</b><span>' + esc(it[1]) + '</span></div>'; }).join('');
+      } else {
+        rows = '<div class="meal"><span class="tbd">준비 중</span></div>';
+      }
       el.innerHTML = head + rows; box.appendChild(el);
     }
     document.getElementById('notice').style.display = any ? 'none' : 'block';
