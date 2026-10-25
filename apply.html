@@ -11,14 +11,16 @@
 <style>
 body{margin:0;background:#EDEAE4}
 a{color:#1F4D3A}a:hover{color:#163828}
-.tab{flex:1;display:flex;align-items:center;justify-content:center;min-height:44px;font-size:15px;font-weight:700;text-decoration:none;color:#E8C9A8;border-bottom:3px solid transparent}
-.tab[aria-current="page"]{color:#FFFFFF;border-bottom-color:#E8B04A}
+.tabs{display:flex;gap:4px;padding:4px;background:rgba(0,0,0,0.28);border:1px solid rgba(232,176,74,0.45);border-radius:999px}
+.tab{flex:1;display:flex;align-items:center;justify-content:center;min-height:42px;border-radius:999px;font-size:16px;font-weight:700;text-decoration:none;color:#F2ECE4;transition:background .15s}
+.tab:hover{background:rgba(255,255,255,0.08);color:#FFFFFF}
+.tab[aria-current="page"]{background:#E8B04A;color:#2E241C;font-weight:900}
 </style>
 </head>
 <body>
 <div style="max-width: 480px; margin: 0 auto; background: #FFFFFF; font-family: 'Noto Sans KR', sans-serif; word-break: keep-all; min-height: 100vh">
 <section style="padding: 16px 24px 28px; background: #1F4D3A">
-<nav aria-label="페이지 메뉴" style="position: relative; display: flex; margin: 0 -12px 16px; padding: 0"><a class="tab" href="./">홈</a><a class="tab" href="menu.html">식단표</a><a class="tab" href="apply.html" aria-current="page">시식 신청</a></nav>
+<nav aria-label="페이지 메뉴" class="tabs" style="position: relative; margin: 0 0 16px"><a class="tab" href="./">홈</a><a class="tab" href="menu.html">식단표</a><a class="tab" href="apply.html" aria-current="page">시식 신청</a></nav>
 
 <form id="inq" novalidate style="background: #FFFFFF; color: #1C2420; border-radius: 12px; padding: 22px 16px; display: flex; flex-direction: column; gap: 14px; margin-top: 0">
 <div style="font-family: 'Noto Serif KR', serif; font-size: 20px; font-weight: 900; color: #1F4D3A">무료 시식 · 배달 신청</div>
