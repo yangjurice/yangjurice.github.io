@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>이번 주 식단 | 양주고을한식뷔페</title>
-<meta name="description" content="양주고을한식뷔페 주간 식단표 (조식·중식·석식)">
+<title>식단표 | 양주고을한식뷔페</title>
+<meta name="description" content="양주고을한식뷔페 점심 식단표">
 <meta name="robots" content="noindex">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,24 +30,20 @@ a{color:#1F4D3A}a:hover{color:#163828}
 <div style="padding: 20px 24px 14px"><a href="./" style="text-decoration:none"><div role="img" aria-label="양주고을 한식뷔페" style="display: inline-flex; align-items: center; gap: 12px; padding: 5px 20px 5px 5px; border: 1px solid rgba(232,176,74,0.7); border-radius: 999px"><svg aria-hidden="true" width="46" height="46" viewBox="0 0 48 48" fill="none" style="flex: 0 0 46px"><circle cx="24" cy="24" r="23" fill="#A8281E"/><circle cx="24" cy="24" r="20" stroke="#E8B04A" stroke-width="1.2"/><g stroke="#FBF3E6" stroke-width="1.8" stroke-linecap="round"><path d="M19 17c-2-2 2-3.5 0-6"/><path d="M24 17c-2-2 2-3.5 0-6"/><path d="M29 17c-2-2 2-3.5 0-6"/></g><path d="M11 22h26c0 7.5-5.8 13-13 13s-13-5.5-13-13z" fill="#FBF3E6"/><path d="M12.5 26.5h23" stroke="#E8B04A" stroke-width="1.6"/><rect x="19" y="35" width="10" height="2.6" rx="1.3" fill="#FBF3E6"/></svg><span style="display: flex; flex-direction: column; align-items: center; line-height: 1"><span style="font-family: 'Black And White Picture', 'Song Myung', 'Noto Serif KR', serif; font-weight: 400; font-size: 28px; letter-spacing: 0.04em; color: #FBF3E6; white-space: nowrap">양주고을</span><span style="display: flex; align-items: center; gap: 6px; margin-top: 5px"><span style="width: 12px; height: 1px; background: #E8B04A"></span><span style="font-family: 'Song Myung', 'Noto Serif KR', serif; font-size: 11px; letter-spacing: 0.4em; margin-right: -0.4em; color: #E8B04A; white-space: nowrap">한식뷔페</span><span style="width: 12px; height: 1px; background: #E8B04A"></span></span></span></div></a></div>
 <nav aria-label="페이지 메뉴" style="display: flex; padding: 0 12px">
 <a class="tab" href="./">홈</a>
-<a class="tab" href="menu.html" aria-current="page">식단 확인</a>
+<a class="tab" href="menu.html" aria-current="page">식단표</a>
 <a class="tab" href="apply.html">시식 신청</a>
 </nav>
 </header>
 
-<section style="padding: 22px 20px 8px; display: flex; flex-direction: column; gap: 6px">
-<h1 style="margin: 0; font-family: 'Noto Serif KR', serif; font-size: 26px; font-weight: 900; color: #1F4D3A">이번 주 점심 식단</h1>
-<p style="margin: 0; font-size: 14px; color: #4F4A44">매일 새벽 4:30부터 조리합니다. 식단은 재료 수급에 따라 바뀔 수 있습니다.</p>
-<div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 10px">
-<button type="button" class="wk" id="prev" aria-label="지난주">‹</button>
-<strong id="range" style="font-size: 16px"></strong>
-<button type="button" class="wk" id="next" aria-label="다음 주">›</button>
-</div>
+<section style="padding: 22px 20px 6px; display: flex; flex-direction: column; gap: 12px">
+<h1 style="margin: 0; font-family: 'Noto Serif KR', serif; font-size: 26px; font-weight: 900; color: #1F4D3A">식단표</h1>
+<div role="tablist" aria-label="이번 주 요일 선택" id="chips" style="display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 6px"></div>
 </section>
 
-<div id="notice" style="margin: 6px 20px 0; padding: 12px 14px; background: #FFF3E6; border: 1px dashed #C2491B; border-radius: 10px; font-size: 14px; color: #8A3A14">이번 주 식단을 준비하고 있습니다. 궁금하신 메뉴는 010-8115-9671로 문의해 주세요.</div>
-
-<section id="days" style="padding: 14px 20px 28px; display: flex; flex-direction: column; gap: 12px"></section>
+<section style="padding: 10px 20px 28px; display: flex; flex-direction: column; gap: 10px">
+<article class="day" id="card" aria-live="polite"></article>
+<p style="margin: 0; font-size: 13px; color: #6B645C">식단은 재료 수급에 따라 바뀔 수 있습니다. 이번 주 요일을 눌러 다른 날 식단을 볼 수 있습니다.</p>
+</section>
 
 <footer style="padding: 20px 24px 32px; background: #1C2420; color: #D5DDD7; font-size: 13px; display: flex; flex-direction: column; gap: 10px">
 <a href="tel:01081159671" style="display: flex; align-items: center; justify-content: center; min-height: 50px; background: #C2491B; color: #FFFFFF; border-radius: 10px; font-size: 17px; font-weight: 700; text-decoration: none">010-8115-9671 전화하기</a>
@@ -66,36 +62,34 @@ var MENU = {};
   function kstToday() { var n = new Date(Date.now() + 9*3600e3); return new Date(Date.UTC(n.getUTCFullYear(), n.getUTCMonth(), n.getUTCDate())); }
   function key(d) { return d.toISOString().slice(0,10); }
   function md(d) { return (d.getUTCMonth()+1) + '/' + d.getUTCDate(); }
+  var esc = function (v) { return String(v).replace(/[<>&]/g, ''); };
   var today = kstToday();
-  var offset = 0;
-  function render() {
-    var mon = new Date(today); var dow = (today.getUTCDay() + 6) % 7; mon.setUTCDate(today.getUTCDate() - dow + offset*7);
-    var sun = new Date(mon); sun.setUTCDate(mon.getUTCDate() + 6);
-    document.getElementById('range').textContent = (offset === 0 ? '이번 주 · ' : offset === 1 ? '다음 주 · ' : offset === -1 ? '지난주 · ' : '') + md(mon) + ' ~ ' + md(sun);
-    var box = document.getElementById('days'); box.innerHTML = ''; var any = false;
-    for (var i = 0; i < 7; i++) {
-      var d = new Date(mon); d.setUTCDate(mon.getUTCDate() + i);
-      var m = MENU[key(d)] || [];
-      var isSun = d.getUTCDay() === 0;
-      var el = document.createElement('article'); el.className = 'day' + (key(d) === key(today) ? ' today' : '');
-      var head = '<div style="display:flex;align-items:baseline;justify-content:space-between;padding:12px 16px;background:#F6F1E8">'
-        + '<strong style="font-size:16px">' + md(d) + ' (' + DOW[d.getUTCDay()] + ')' + (key(d) === key(today) ? ' <span style="font-size:12px;color:#C2491B">오늘</span>' : '') + '</strong>'
-        + '<span style="font-size:12px;color:#4F4A44">점심</span></div>';
-      var esc = function (v) { return String(v).replace(/[<>&]/g, ''); };
-      var rows;
-      if (m.length) {
-        any = true;
-        rows = m.map(function (it) { return '<div class="meal"><b>' + esc(it[0]) + '</b><span>' + esc(it[1]) + '</span></div>'; }).join('');
-      } else {
-        rows = '<div class="meal"><span class="tbd">준비 중</span></div>';
-      }
-      el.innerHTML = head + rows; box.appendChild(el);
-    }
-    document.getElementById('notice').style.display = any ? 'none' : 'block';
+  var mon = new Date(today); mon.setUTCDate(today.getUTCDate() - (today.getUTCDay() + 6) % 7);
+  var week = []; for (var i = 0; i < 7; i++) { var d = new Date(mon); d.setUTCDate(mon.getUTCDate() + i); week.push(d); }
+  var sel = key(today);
+  var chips = document.getElementById('chips'), card = document.getElementById('card');
+
+  function draw() {
+    chips.innerHTML = week.map(function (d) {
+      var k = key(d), on = k === sel, isToday = k === key(today);
+      return '<button type="button" role="tab" aria-selected="' + on + '" data-k="' + k + '" style="display:flex;flex-direction:column;align-items:center;gap:2px;min-height:56px;padding:6px 0;border-radius:10px;font:inherit;cursor:pointer;'
+        + (on ? 'background:#1F4D3A;color:#fff;border:1px solid #1F4D3A' : 'background:#fff;color:#1C2420;border:1px solid #CFC8BC') + '">'
+        + '<span style="font-size:13px;font-weight:700">' + DOW[d.getUTCDay()] + '</span>'
+        + '<span style="font-size:12px">' + (isToday ? '오늘' : md(d)) + '</span></button>';
+    }).join('');
+    var d = week.filter(function (x) { return key(x) === sel; })[0];
+    var m = MENU[sel] || [];
+    var head = '<div style="display:flex;align-items:baseline;justify-content:space-between;padding:14px 16px;background:#F6F1E8">'
+      + '<strong style="font-size:18px">' + md(d) + ' (' + DOW[d.getUTCDay()] + ')' + (sel === key(today) ? ' <span style="font-size:13px;color:#C2491B">오늘</span>' : '') + '</strong>'
+      + '<span style="font-size:13px;color:#4F4A44">점심</span></div>';
+    var rows = m.length
+      ? m.map(function (it) { return '<div class="meal"><b>' + esc(it[0]) + '</b><span>' + esc(it[1]) + '</span></div>'; }).join('')
+      : '<div class="meal" style="flex-direction:column;gap:4px;padding:22px 16px"><span class="tbd" style="font-size:16px">식단 준비 중입니다.</span><span style="font-size:13px;color:#6B645C">궁금하신 메뉴는 010-8115-9671로 문의해 주세요.</span></div>';
+    card.className = 'day' + (sel === key(today) ? ' today' : '');
+    card.innerHTML = head + rows;
   }
-  document.getElementById('prev').onclick = function () { if (offset > -1) { offset--; render(); } };
-  document.getElementById('next').onclick = function () { if (offset < 1) { offset++; render(); } };
-  render();
+  chips.addEventListener('click', function (e) { var b = e.target.closest('button[data-k]'); if (b) { sel = b.getAttribute('data-k'); draw(); } });
+  draw();
 })();
 </script>
 </body>
