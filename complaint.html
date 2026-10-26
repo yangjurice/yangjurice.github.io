@@ -57,7 +57,7 @@ var src='';try{src=(new URLSearchParams(location.search).get('src')||sessionStor
 var body={category:v('category'),message:v('message'),company:v('company')||null,phone:ph||null,consent:!!(ph&&f.consent.checked),source:src||null};
 send.disabled=true;say('보내는 중입니다...',true);
 fetch(URL_+'/rest/v1/complaints',{method:'POST',headers:{'apikey':KEY,'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify(body)})
-.then(function(r){if(!r.ok)throw new Error(r.status);f.innerHTML='<div style="padding:18px 4px;display:flex;flex-direction:column;gap:8px"><div style="font-family:\'Noto Serif KR\',serif;font-size:20px;font-weight:900;color:#3A2E24">접수되었습니다.</div><div style="font-size:15px;color:#4F4A44;line-height:1.6">말씀해 주셔서 감사합니다. 확인하고 고치겠습니다.'+(ph?' 남겨 주신 번호로 연락드리겠습니다.':'')+'</div></div>';})
+.then(function(r){if(!r.ok)throw new Error(r.status);f.innerHTML='<div style="padding:18px 4px;display:flex;flex-direction:column;gap:8px"><div style="font-family:\'Noto Serif KR\',serif;font-size:20px;font-weight:900;color:#3A2E24">접수되었습니다.</div><div style="font-size:15px;color:#4F4A44;line-height:1.6">말씀해 주셔서 감사합니다. 확인하여 즉시 반영하겠습니다.'+(ph?' 남겨 주신 번호로 연락드리겠습니다.':'')+'</div></div>';})
 .catch(function(){send.disabled=false;say('전송이 안 됐습니다. 010-8115-9671로 전화나 문자 주세요.');});
 });
 })();
