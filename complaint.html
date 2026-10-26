@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>불편사항 접수 | 양주고을한식뷔페</title>
+<meta name="description" content="양주고을한식뷔페 불편사항 접수">
+<meta name="robots" content="noindex">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;800;900&amp;family=Noto+Sans+KR:wght@400;500;700;900&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#EDEAE4}
+a{color:#1F4D3A}a:hover{color:#163828}
+.tabs{display:flex;gap:4px;padding:4px;background:rgba(0,0,0,0.28);border:1px solid rgba(232,176,74,0.45);border-radius:999px}
+.tab{flex:1;display:flex;align-items:center;justify-content:center;min-height:42px;border-radius:999px;font-size:16px;font-weight:700;text-decoration:none;color:#F2ECE4;transition:background .15s}
+.tab:hover{background:rgba(255,255,255,0.08);color:#FFFFFF}
+.tab[aria-current="page"]{background:#E8B04A;color:#2E241C;font-weight:900}
+</style>
+</head>
+<body>
+<div style="max-width: 480px; margin: 0 auto; background: #FFFFFF; font-family: 'Noto Sans KR', sans-serif; word-break: keep-all; min-height: 100vh">
+<section style="padding: 16px 24px 28px; background: #3A2E24">
+<nav aria-label="페이지 메뉴" class="tabs" style="position: relative; margin: 0 0 16px"><a class="tab" href="./">홈</a><a class="tab" href="menu.html">식단표</a><a class="tab" href="apply.html">시식 신청</a></nav>
+<form id="cf" novalidate style="background: #FFFFFF; color: #1C2420; border-radius: 12px; padding: 22px 16px; display: flex; flex-direction: column; gap: 14px">
+<div style="font-family: 'Noto Serif KR', serif; font-size: 20px; font-weight: 900; color: #3A2E24">불편사항 접수</div>
+<div style="font-size: 14px; color: #4F4A44; margin-top: -8px; line-height: 1.6">불편하셨던 점을 남겨 주시면 사장이 직접 확인하고 고치겠습니다. 이름 없이 남기셔도 됩니다.</div>
+<fieldset style="border: 0; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px"><legend style="font-size: 14px; font-weight: 700; padding: 0; margin-bottom: 6px">어떤 점이 불편하셨나요? <b style="color:#C2491B">*</b></legend>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px"><label style="display: flex; align-items: center; gap: 6px; border: 1px solid #CFC8BC; border-radius: 8px; padding: 0 12px; min-height: 44px; font-size: 15px; font-weight: 500"><input type="radio" name="category" value="맛·양" style="width: 18px; height: 18px; margin: 0">맛·양</label><label style="display: flex; align-items: center; gap: 6px; border: 1px solid #CFC8BC; border-radius: 8px; padding: 0 12px; min-height: 44px; font-size: 15px; font-weight: 500"><input type="radio" name="category" value="배달 시간" style="width: 18px; height: 18px; margin: 0">배달 시간</label><label style="display: flex; align-items: center; gap: 6px; border: 1px solid #CFC8BC; border-radius: 8px; padding: 0 12px; min-height: 44px; font-size: 15px; font-weight: 500"><input type="radio" name="category" value="위생" style="width: 18px; height: 18px; margin: 0">위생</label><label style="display: flex; align-items: center; gap: 6px; border: 1px solid #CFC8BC; border-radius: 8px; padding: 0 12px; min-height: 44px; font-size: 15px; font-weight: 500"><input type="radio" name="category" value="응대·서비스" style="width: 18px; height: 18px; margin: 0">응대·서비스</label><label style="display: flex; align-items: center; gap: 6px; border: 1px solid #CFC8BC; border-radius: 8px; padding: 0 12px; min-height: 44px; font-size: 15px; font-weight: 500"><input type="radio" name="category" value="주문·정산" style="width: 18px; height: 18px; margin: 0">주문·정산</label><label style="display: flex; align-items: center; gap: 6px; border: 1px solid #CFC8BC; border-radius: 8px; padding: 0 12px; min-height: 44px; font-size: 15px; font-weight: 500"><input type="radio" name="category" value="기타" style="width: 18px; height: 18px; margin: 0">기타</label></div></fieldset>
+<label style="display: flex; flex-direction: column; gap: 4px; font-size: 14px; font-weight: 700"><span>내용 <b style="color:#C2491B">*</b></span><textarea name="message" maxlength="1000" rows="6" placeholder="날짜, 메뉴, 상황 등을 적어 주시면 빠르게 확인할 수 있습니다." style="font: inherit; font-weight: 400; font-size: 16px; padding: 10px 12px; border: 1px solid #CFC8BC; border-radius: 8px; box-sizing: border-box; width: 100%; resize: vertical"></textarea></label>
+<label style="display: flex; flex-direction: column; gap: 4px; font-size: 14px; font-weight: 700">회사·기관명 (선택)<input name="company" maxlength="100" autocomplete="organization" style="font: inherit; font-weight: 400; font-size: 16px; min-height: 44px; padding: 0 12px; border: 1px solid #CFC8BC; border-radius: 8px; box-sizing: border-box; width: 100%"></label>
+<label style="display: flex; flex-direction: column; gap: 4px; font-size: 14px; font-weight: 700">연락처 (답변을 원하시면)<input name="phone" type="tel" inputmode="tel" maxlength="20" autocomplete="tel" placeholder="010-0000-0000" style="font: inherit; font-weight: 400; font-size: 16px; min-height: 44px; padding: 0 12px; border: 1px solid #CFC8BC; border-radius: 8px; box-sizing: border-box; width: 100%"></label>
+<label id="consent-row" style="display: none; gap: 10px; align-items: flex-start; font-size: 13px; line-height: 1.5; color: #4F4A44"><input type="checkbox" name="consent" style="width: 20px; height: 20px; margin: 0; flex: 0 0 20px"><span><strong style="color:#1C2420">연락처 수집·이용에 동의합니다.</strong> 불편사항 답변 연락에만 쓰고, 처리가 끝나면 삭제합니다. <a href="privacy.html" target="_blank">처리방침 보기</a></span></label>
+<input name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position: absolute; left: -9999px; width: 1px; height: 1px">
+<div id="cf-msg" role="status" aria-live="polite" style="font-size: 14px; font-weight: 700"></div>
+<button type="submit" id="cf-send" style="min-height: 52px; background: #3A2E24; color: #FFFFFF; border: 0; border-radius: 10px; font-size: 17px; font-weight: 700; font-family: inherit; cursor: pointer">접수하기</button>
+</form>
+<a href="tel:01081159671" style="display: block; text-align: center; margin-top: 14px; color: #E8C9A8; font-size: 14px">급한 일은 전화 주세요 · 010-8115-9671</a>
+</section>
+</div>
+<script>
+(function(){
+var URL_='https://gedciexihkuslkfizxem.supabase.co', KEY='sb_publishable_U8N5wL8xredROMn_XyS78w_e72PPFO1';
+var f=document.getElementById('cf'), msg=document.getElementById('cf-msg'), send=document.getElementById('cf-send'), cr=document.getElementById('consent-row');
+function say(t,ok){msg.textContent=t;msg.style.color=ok?'#1F4D3A':'#B3261E';}
+f.phone.addEventListener('input',function(){cr.style.display=this.value.trim()?'flex':'none';});
+f.addEventListener('submit',function(e){
+e.preventDefault();
+var d=new FormData(f), v=function(k){return String(d.get(k)||'').trim();};
+if(!v('category')){say('불편하셨던 점의 종류를 골라 주세요.');return;}
+if(!v('message')){say('내용을 적어 주세요.');return;}
+var ph=v('phone');
+if(ph && ph.replace(/\D/g,'').length<9){say('연락처를 다시 확인해 주세요.');return;}
+if(ph && !f.consent.checked){say('답변 연락을 위해 연락처 수집에 동의해 주세요.');return;}
+if(v('website')){f.hidden=true;return;}
+var src='';try{src=(new URLSearchParams(location.search).get('src')||sessionStorage.getItem('yg_src')||'').slice(0,30);}catch(x){}
+var body={category:v('category'),message:v('message'),company:v('company')||null,phone:ph||null,consent:!!(ph&&f.consent.checked),source:src||null};
+send.disabled=true;say('보내는 중입니다...',true);
+fetch(URL_+'/rest/v1/complaints',{method:'POST',headers:{'apikey':KEY,'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify(body)})
+.then(function(r){if(!r.ok)throw new Error(r.status);f.innerHTML='<div style="padding:18px 4px;display:flex;flex-direction:column;gap:8px"><div style="font-family:\'Noto Serif KR\',serif;font-size:20px;font-weight:900;color:#3A2E24">접수되었습니다.</div><div style="font-size:15px;color:#4F4A44;line-height:1.6">말씀해 주셔서 감사합니다. 확인하고 고치겠습니다.'+(ph?' 남겨 주신 번호로 연락드리겠습니다.':'')+'</div></div>';})
+.catch(function(){send.disabled=false;say('전송이 안 됐습니다. 010-8115-9671로 전화나 문자 주세요.');});
+});
+})();
+</script>
+</body>
+</html>
