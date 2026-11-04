@@ -4,6 +4,20 @@
   var KEY = 'sb_publishable_U8N5wL8xredROMn_XyS78w_e72PPFO1';
   var page = (document.currentScript && document.currentScript.getAttribute('data-page')) || 'home';
 
+  // 사장님 기기 제외: ?me=on 을 한 번 열면 이 브라우저는 통계에서 빠짐, ?me=off 로 되돌림
+  var me = null;
+  try { me = new URLSearchParams(location.search).get('me'); } catch (e) {}
+  if (me === 'on' || me === 'off') {
+    try {
+      if (me === 'on') localStorage.setItem('yg_me', '1'); else localStorage.removeItem('yg_me');
+      var u = new URL(location.href); u.searchParams.delete('me'); history.replaceState(null, '', u.pathname + u.search + u.hash);
+    } catch (e) {}
+    try { alert(me === 'on' ? '이 기기는 이제 방문 통계에서 빠집니다.' : '이 기기도 다시 방문 통계에 잡힙니다.'); } catch (e) {}
+  }
+  var skip = false;
+  try { skip = localStorage.getItem('yg_me') === '1'; } catch (e) {}
+  if (skip) { window.ygTrack = function () {}; return; }
+
   function rid() {
     var s = '';
     try { var a = new Uint8Array(12); crypto.getRandomValues(a); for (var i = 0; i < a.length; i++) s += ('0' + a[i].toString(16)).slice(-2); }
